@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <title>Behavior Compass Interaction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Collapsible Controls for Shapes, Symbols, and Highlighter -->
+<section class="controls">
+    <details open>
+        <summary>Compass Selector</summary>
+        <label for="image-selector">Choose an Image:</label>
+        <select id="image-selector" aria-label="Select an image to display on the compass">
+            <option value="assets/Compass.png" selected>Compass</option>
+            <option value="assets/Charisma Compass.png">Charisma Compass</option>
+            <option value="assets/Fenrir.png">Fenrir</option>
+        </select><br>
+
+        <label for="image-upload">Or Upload an Image:</label>
+        <input type="file" id="image-upload" accept="image/*" aria-label="Upload a custom image" />
+    </details>
+
+    <details>
+        <summary>Shape and Color Options</summary>
+        <label for="shape-selector">Choose a Shape:</label><br>
+        <select id="shape-selector">
+            <option value="check" selected>Check Mark (✔)</option>
+            <option value="circle">Circle (∘)</option>
+            <option value="plus">Plus Sign (+)</option>
+            <option value="minus">Minus Sign (-)</option>
+        </select><br><br>
+
+        <label for="color-picker">Choose a Color:</label><br>
+        <input type="color" id="color-picker" value="#ff0000" aria-label="Pick a color for the shapes"><br><br>
+
+        <label for="size-slider">Size:</label><br>
+        <input type="range" id="size-slider" min="10" max="100" value="20" aria-label="Adjust shape size">
+        <span id="size-value">20</span>px
+    </details>
+
+    <details>
+        <summary>Highlighter</summary>
+        <label for="highlighter-toggle">Highlighter Mode:</label>
+        <input type="checkbox" id="highlighter-toggle" aria-label="Toggle highlighter mode"><br>
+
+        <label for="highlighter-color">Highlighter Color:</label>
+        <input type="color" id="highlighter-color" value="#ffff00" aria-label="Pick a highlighter color"><br>
+
+        <label for="highlighter-size">Highlighter Opacity:</label>
+        <input type="range" id="highlighter-size" min="0.01" max="1" step="0.01" value="0.5" aria-label="Adjust highlighter opacity">
+    </details>
+
+    <details>
+        <summary>Erase</summary>
+        <button id="erase-all-btn" aria-label="Erase all shapes">Erase All</button><br>
+        <label>
+            <input type="checkbox" id="erase-mode-toggle"> Enable Erase Mode
+        </label>
+    </details>
+
+    <details>
+        <summary>Export & Help</summary>
+        <button id="export-img-btn" aria-label="Save the current layout as an image">Save as Image</button>
+        <button id="export-pdf-btn" aria-label="Save as PDF">Save as PDF</button><br><br>
+        <button id="help-btn" onclick="window.open('help.html', '_blank')" aria-label="Open help page in new tab">Help</button>
+    </details>
+</section>
+
+<!-- Compass Image -->
+<section id="compass-area" class="compass-container">
+    <img id="dynamic-image" src="assets/Compass.png" alt="Dynamic Image" class="compass-image" aria-label="Main compass image">
+</section>
+
+<!-- External JavaScript Files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script> <!-- Link to your external script file -->
+</body>
+</html>
