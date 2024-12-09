@@ -11,6 +11,5 @@
 
 canvas {
     background-image: url('assets/SparkCompass.png');
-    background-size: contain;
-    width: 100%;
+    background-repeat: no-repeat;
 }
