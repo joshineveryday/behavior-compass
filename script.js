@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const dynamicImage = document.getElementById("dynamic-image");
     const imageSelector = document.getElementById("image-selector");
-    const imageUpload = document.getElementById("image-upload");
 
     const shapeSelector = document.getElementById("shape-selector");
     const colorPicker = document.getElementById("color-picker");
@@ -14,10 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const eraseModeToggle = document.getElementById("erase-mode-toggle");
 
     const compassArea = document.getElementById("compass-area");
+
     const canvas = document.createElement("canvas");
     canvas.width = compassArea.offsetWidth;
     canvas.height = compassArea.offsetHeight;
     compassArea.appendChild(canvas);
+    canvas.appendChild(dynamicImage);
 
     const ctx = canvas.getContext("2d");
     let drawing = false;
@@ -25,14 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update displayed image based on selection
     imageSelector.addEventListener("change", (event) => {
         dynamicImage.src = event.target.value;
-    });
-
-    // Upload custom image
-    imageUpload.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            dynamicImage.src = URL.createObjectURL(file);
-        }
     });
 
     // Update displayed shape size
